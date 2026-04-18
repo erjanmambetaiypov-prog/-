@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шерине - Эркинбек </title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f4ece1; /* Жылуу беж түсү */
+            display: flex;
+            justify-content: center;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .mobile-invitation {
+            width: 100%;
+            max-width: 400px; /* Вертикалдык туурасы */
+            background-color: #fdf5e6;
+            min-height: 100vh;
+            border: 8px solid #8b0000;
+            box-sizing: border-box;
+            position: relative;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+
+        /* Анардын сүрөттөрү */
+        .pomegranate {
+            width: 50px;
+            height: 50px;
+            background-image: url('https://img.icons8.com/color/96/pomegranate.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin: 10px 0;
+        }
+
+        h1 {
+            color: #8b0000;
+            font-size: 1.8rem;
+            margin: 10px 0;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #b8860b;
+        }
+
+        .main-text {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            color: #333;
+            margin: 15px 0;
+            padding: 0 10px;
+        }
+
+        .highlight-name {
+            font-size: 1.5rem;
+            color: #8b0000;
+            font-weight: bold;
+            margin: 10px 0;
+            text-transform: uppercase;
+        }
+
+        .info-card {
+            background: #fff;
+            border: 1px solid #b8860b;
+            padding: 15px;
+            width: 90%;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .info-card p {
+            margin: 8px 0;
+            font-size: 1rem;
+        }
+
+        .timer-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2х2 сеткасы */
+            gap: 10px;
+            width: 80%;
+            margin: 20px 0;
+        }
+
+        .unit {
+            background: #8b0000;
+            color: #f1c40f;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .unit span {
+            font-size: 1.5rem;
+            display: block;
+            font-weight: bold;
+        }
+
+        .btn-map {
+            background-color: #27ae60;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 10px 0;
+            display: block;
+            width: 80%;
+        }
+
+        .footer {
+            margin-top: auto;
+            padding: 20px 0;
+            font-style: italic;
+            font-size: 0.9rem;
+            color: #5d4037;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-invitation">
+        <div class="pomegranate"></div>
+        
+        <h1>ШЕРИНЕГЕ ЧАКЫРУУ</h1>
+
+        <p class="main-text">
+            Салттуу «Шериненин» ээси        </p>
+
+        <div class="highlight-name">ЭРКИНБЕК </div>
+
+        <p class="main-text" style="font-weight: bold;">
+            
+        </p>
+
+        <div class="info-card">
+            <p> <b>Күнү:</b> 25-апрель, 2026</p>
+            <p> <b>Убактысы:</b> 17:00</p>
+            <p> <b>Дареги:</b> «Анар» кафеси</p>
+            <p style="font-size: 0.9rem; color: #666;">Лев Толстой көчөсү, 102/4</p>
+            <a href="https://2gis.kg/bishkek/search/Льва%20Толстого%2C%20102%2F4" target="_blank" class="btn-map">📍 2ГИС Карта</a>
+        </div>
+
+        <p class="main-text">Башталышына калды:</p>
+
+        <div class="timer-grid"><div class="unit"><span id="days">0</span>Күн</div>
+            <div class="unit"><span id="hours">0</span>Саат</div>
+            <div class="unit"><span id="mins">0</span>Мүнөт</div>
+            <div class="unit"><span id="secs">0</span>Сек</div>
+        </div>
+
+        <div class="footer">
+            Келишиңиздерди күтөбүз!<br>
+            <small>Ынтымак бар жерде, ырыс бар.</small>
+        </div>
+        
+        <div class="pomegranate" style="margin-top: 10px;"></div>
+    </div>
+
+    <script>
+        const target = new Date("April 25, 2026 17:00:00").getTime();
+
+        setInterval(() => {
+            const now = new Date().getTime();
+            const diff = target - now;
+
+            document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("mins").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById("secs").innerText = Math.floor((diff % (1000 * 60)) / 1000);
+        }, 1000);
+    </script>
+</body>
+</html>
